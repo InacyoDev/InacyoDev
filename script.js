@@ -29,14 +29,12 @@ if (config.courseTitle) document.querySelector('#course-title').textContent = co
 function closeMenu(restoreFocus = false) {
   menu.classList.remove('open');
   menuButton.setAttribute('aria-expanded', 'false');
-  menuButton.querySelector('span').textContent = '+';
   if (restoreFocus) menuButton.focus();
 }
 menuButton.addEventListener('click', () => {
   const open = menuButton.getAttribute('aria-expanded') !== 'true';
   menu.classList.toggle('open', open);
   menuButton.setAttribute('aria-expanded', String(open));
-  menuButton.querySelector('span').textContent = open ? '−' : '+';
 });
 menu.addEventListener('click', event => { if (event.target.closest('a')) closeMenu(); });
 document.addEventListener('click', event => { if (!event.target.closest('.header')) closeMenu(); });
